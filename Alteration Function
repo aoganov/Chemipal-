@@ -1,0 +1,78 @@
+    
+    
+    func Alteration(type:String? , subtype:String?){
+        
+        //alter creature
+        
+        //alter scientist
+        //alter lab
+        //increase decrease number
+        //alter boolean
+        
+        let file = "dix.txt" //this is the file. we will write to and read from it
+        
+        let text = "some text" //just a text
+        
+        if let dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
+            let path = NSURL(fileURLWithPath: dir).URLByAppendingPathComponent(file)
+            
+            //writing
+            if type == "Creature" {
+                if subtype == "Bool"{
+                    do {
+                        try text.writeToURL(path, atomically: true, encoding: NSUTF8StringEncoding)
+                    }
+                    catch {/* error handling here */}
+                    
+                }
+                else if subtype == "Int"{
+                    do {
+                        try text.writeToURL(path, atomically: true, encoding: NSUTF8StringEncoding)
+                    }
+                    catch {/* error handling here */}
+                    
+                }
+                
+            }
+            else if type == "Scientist"{
+                if subtype == "Bool"{
+                    do {
+                        try text.writeToURL(path, atomically: true, encoding: NSUTF8StringEncoding)
+                    }
+                    catch {/* error handling here */}
+                    
+                }
+                else if subtype == "Int"{
+                    do {
+                        try text.writeToURL(path, atomically: true, encoding: NSUTF8StringEncoding)
+                    }
+                    catch {/* error handling here */}
+                    
+                }
+                
+            }
+            else if type == "Lab"{
+                if subtype == "Bool"{
+                    do {
+                        try text.writeToURL(path, atomically: true, encoding: NSUTF8StringEncoding)
+                    }
+                    catch {/* error handling here */}
+                    
+                }
+                else if subtype == "Int"{
+                    do {
+                        try text.writeToURL(path, atomically: true, encoding: NSUTF8StringEncoding)
+                    }
+                    catch {/* error handling here */}
+                    
+                }
+                
+            }
+            
+
+        }}}
+
+
+
+
+    
