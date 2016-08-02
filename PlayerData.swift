@@ -9,61 +9,52 @@
 import Foundation
 
 private class playerData {
-    class petData: playerData {
-        var petColor: String?
-        var petMood: String?
-        var petSkill: String?
-        var petAction: String?
-    }
-    
-    class denData: playerData {
-        var itemSlots: Int?
-        var setItems: [[String?]]
-        var food: [(String?, Int?)]
-        var chemical: [(String?, Int?)]
-        var spaceAvail: Int?
-        var totalSpace: Int?
-    }
-    
-    class labData: playerData {
-        var scientistAppearance: String?
-        var scientistMood: String?
-        var setButtons: Int?
-    }
-    
-    class invData: playerData {
-        var materialsOwned: [String?: Int?]
-        var furnitureOwned: [String?: Int?]
-        var consumablesOwned: [String?: Int?]
-    }
-    
-    class miscData: playerData {
-        var lastLogin: String?
-        var totalTimePlayed: Int?
-        var activityLog: [String?]
-    }
-    
-    init() {
-        petColor = "white"
-        petMood = "Bewildered"
-        petSkill = "None"
-        petAction = "Chilling"
-        itemSlots = 8
-        setItems = [[]]
-        food = "None"
-        chemical = "None"
-        totalSpace = 32
-        spaceAvail = totalSpace
-        scientisAppearance = "Default"
-        scientistMood = "Excited"
-        setButtons = 0
-        materialsOwned = []
-        furnitureOwned = []
-        consumablesOwned = []
+
+    func firstTimePlayer() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue("white",forKey: "petColor")
+        defaults.setValue("Bewildered",forKey: "petMood")
+        defaults.setValue("None",forKey: "petSkill")
+        defaults.setValue("Chilling",forKey: "petAction")
+        defaults.setValue(8,forKey: "itemSlots")
+        defaults.setValue([[]],forKey: "setItems")
+        //defaults.setValue([("Beginner Food", 1)],forKey: "food")
+        //defaults.setValue([("Beginner Chem", 1)],forKey: "chemical")
+        defaults.setValue(32,forKey: "totalSpace")
+        defaults.setValue(32,forKey: "spaceAvailable")
+        defaults.setValue("Default",forKey: "scientistAppearance")
+        defaults.setValue("Excited",forKey: "scientistMood")
+        defaults.setValue(0,forKey: "setButtons")
+        defaults.setValue([:],forKey: "materialsOwned")
+        defaults.setValue([:],forKey: "furnitureOwned")
+        defaults.setValue([:],forKey: "consumablesOwned")
         let date = NSDate()
-        lastLogin = " \(date)"
-        totaltimePlayed = 0
-        activityLog = []
+        defaults.setValue("\(date)",forKey: "lastLogin")
+        defaults.setValue("0",forKey: "totalTimePlayed")
+        defaults.setValue("[]",forKey: "activityLog")
+        }
+    
+    func loadStringData(loadKey: String?) -> String?{
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let name = defaults.stringForKey(loadKey!) {
+            return(name)
+        }
+        else {
+            return("Error, no player data found.")
+            
+        }
     }
     
+    func loadIntData(loadKey: String?) -> String?{
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let name = defaults.stringForKey(loadKey!) {
+            return(name)
+        }
+        else {
+            return("Error, no player data found.")
+        }
+
+        
+      
+    }
 }
